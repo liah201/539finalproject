@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Minimap | Code grid </title>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Work+Sans&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Work+Sans&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -15,13 +17,13 @@
             <p><a href="index.html" class="nav-link">Rayoun's Diary</a></p>
             <p id="explore-button" style="cursor: pointer;">Explore?</p>
         </nav>
-          
+
         <!-- 전체화면 오버레이 메뉴 -->
         <div id="fullscreen-menu" class="fullscreen-menu hidden">
             <button id="menu-close" class="close-button">✕</button>
             <a href="seoul.html" class="menu-item font-seoul"> 2024 Seoul</a>
             <a href="jeju.html" class="menu-item font-seoul">2024 Jeju</a>
-            <a href="chicago.html" class="menu-item font-seoul">2024 Chicago</a>            
+            <a href="chicago.html" class="menu-item font-seoul">2024 Chicago</a>
         </div>
 
         <h1 class="visually-hidden">Chicago Travel Diary</h1>
@@ -50,54 +52,54 @@
                 <div class="item"><img src="pics/chicago-7.jpg" alt="People walking at Chicago sea port"></div>
             </div>
         </div>
-    </div>
-    <script src="js/animate.js"></script>
-    <script>
-        // 페이지가 열릴 때 페이드 인
-        document.body.classList.add('fade-in');
+        </div>
+        <script src="js/animate.js"></script>
+        <script>
+            // 페이지가 열릴 때 페이드 인
+            document.body.classList.add('fade-in');
 
-        // 모든 a 태그 클릭 시 페이드 아웃 후 이동
-        document.querySelectorAll('a[href]').forEach(link => {
-            link.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (!href.startsWith('#') && !href.startsWith('javascript')) {
-                    e.preventDefault();
-                    document.body.classList.remove('fade-in');
-                    document.body.classList.add('fade-out');
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 300); // 디졸브 시간과 맞춰주세요
+            // 모든 a 태그 클릭 시 페이드 아웃 후 이동
+            document.querySelectorAll('a[href]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (!href.startsWith('#') && !href.startsWith('javascript')) {
+                        e.preventDefault();
+                        document.body.classList.remove('fade-in');
+                        document.body.classList.add('fade-out');
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 300); // 디졸브 시간과 맞춰주세요
+                    }
+                });
+            });
+        </script>
+        <script>
+            const exploreBtn = document.getElementById('explore-button');
+            const menuOverlay = document.getElementById('fullscreen-menu');
+
+            exploreBtn.addEventListener('click', () => {
+                menuOverlay.classList.toggle('hidden');
+            });
+
+            // 전체 화면 클릭 시 닫기 (링크 클릭하면 자연스럽게 페이지 이동)
+            menuOverlay.addEventListener('click', (e) => {
+                if (e.target === menuOverlay) {
+                    menuOverlay.classList.add('hidden');
                 }
             });
-        });
-    </script>
-    <script>
-        const exploreBtn = document.getElementById('explore-button');
-        const menuOverlay = document.getElementById('fullscreen-menu');
-      
-        exploreBtn.addEventListener('click', () => {
-          menuOverlay.classList.toggle('hidden');
-        });
-      
-        // 전체 화면 클릭 시 닫기 (링크 클릭하면 자연스럽게 페이지 이동)
-        menuOverlay.addEventListener('click', (e) => {
-          if (e.target === menuOverlay) {
-            menuOverlay.classList.add('hidden');
-          }
-        });
-    </script>
-    <script>
-        window.imageCaptions = [
-          "Sunlight twinkling on the sea",
-          "In Chicago, always see the river",
-          "Soft ripples in still water",
-          "My favorite shot from the trip",
-          "Walking through Chicago streets",
-          "Even skyscrapers hold romance",
-          "Following sunlight, following people"
-        ];
-    </script>
-      
+        </script>
+        <script>
+            window.imageCaptions = [
+                "Sunlight twinkling on the sea",
+                "In Chicago, always see the river",
+                "Soft ripples in still water",
+                "My favorite shot from the trip",
+                "Walking through Chicago streets",
+                "Even skyscrapers hold romance",
+                "Following sunlight, following people"
+            ];
+        </script>
+
 
 </body>
 
