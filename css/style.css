@@ -86,6 +86,17 @@ nav {
     opacity: 0;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+} 
+
 /* 공통 스타일 */
 .menu-item {
     font-size: 2rem;
@@ -95,7 +106,7 @@ nav {
 }
 
 .menu-item:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     /* 살짝 위로 튀어나오는 느낌 */
 }
 
@@ -357,7 +368,7 @@ body.fade-out {
         font-style: italic;
         color: #666;
         padding: 0 1em;
-        margin-top: 35%;
+        margin-top: 40%;
         max-width: 90%;
     }
 
