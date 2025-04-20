@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rayoun's Trip Diary</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Chelsea+Market&family=Parkinsans&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+  <h1>Trip Diary</h1>
+  <p class="subtitle">Small moments from big cities </p>
+
+  <div class="gallery">
+    <a href="seoul.html" class="trip-card">
+      <img src="pics/seoul-9.jpg" alt="seoul Trip Gallery" />
+      <div class="trip-caption">2024 — Seoul</div>
+    </a>
+    <a href="jeju.html" class="trip-card">
+        <img src="pics/jeju-1.jpg" alt="Jeju Trip Gallery" />
+        <div class="trip-caption">2024 — Jeju</div>
+    </a>
+    <a href="chicago.html" class="trip-card">
+      <img src="pics/chicago-1.jpg" alt="Chicago Trip Gallery" />
+      <div class="trip-caption">2024 — Chicago</div>
+    </a>
+  </div>
+  <script>
+    // 페이지가 열릴 때 페이드 인
+    document.body.classList.add('fade-in');
+  
+    // 모든 a 태그 클릭 시 페이드 아웃 후 이동
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.classList.remove('fade-in');
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 300); // 디졸브 시간과 맞춰주세요
+        }
+      });
+    });
+  </script>
+  
+  <script>
+    const exploreBtn = document.getElementById('explore-button');
+    const menuOverlay = document.getElementById('fullscreen-menu');
+  
+    exploreBtn.addEventListener('click', () => {
+      menuOverlay.classList.toggle('hidden');
+    });
+  
+    // 전체 화면 클릭 시 닫기 (링크 클릭하면 자연스럽게 페이지 이동)
+    menuOverlay.addEventListener('click', (e) => {
+      if (e.target === menuOverlay) {
+        menuOverlay.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+
+</html>

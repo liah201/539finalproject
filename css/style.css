@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Neue haes Grotesk', sans-serif;
+    background-color: #f2f2f2;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    user-select: none;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f1efe7;
+    padding-top: 5em;
+    /* space for nav */
+    box-sizing: border-box;
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+.menu-item.active {
+    background-color: rgb(215, 167, 94);
+    font-weight: bold;
+}
+
+
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f1efe7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    z-index: 999;
+    transition: opacity 0.4s ease;
+    opacity: 1;
+}
+
+.fullscreen-menu.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* 공통 스타일 */
+.menu-item {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-2px);
+    /* 살짝 위로 튀어나오는 느낌 */
+}
+
+.close-button {
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #555;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.close-button:hover {
+    transform: rotate(90deg);
+    color: #000;
+}
+
+
+/* 각 메뉴 항목 별 폰트 */
+.font-seoul {
+    font-family: 'Instrument Serif', serif;
+}
+
+.font-jeju {
+    font-family: 'Instrument Serif', serif;
+}
+
+.font-chicago {
+    font-family: 'Instrument Serif', serif;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.font-seoul {
+    font-family: 'Instrument Serif', serif, 400;
+}
+
+.siteinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 50%;
+    left: 1.5em;
+    transform: translateY(-50%);
+    gap: 0.3em; /* 각 줄 사이 여백 */
+}
+
+.siteinfo p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.siteinfo p span {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Instrument Serif', serif;
+    color: #666;
+}
+
+.siteinfo .img-caption {
+    margin-top: 1.5em; /* 캡션과 날짜/장소 사이 간격 */
+    font-size: 14px;
+    font-style: regular;
+    color: #333333;
+    max-width: 200px;
+    text-align: left;
+    line-height: 1.4;
+}
+
+
+
+.img-preview {
+    position: absolute;
+    top: 28em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: auto;
+    /* ✅ Let it grow */
+    max-height: 70vh;
+    /* ✅ Don’t overflow screen */
+    overflow: visible;
+}
+
+.img-preview img {
+    width: 90%;
+    height: auto;
+    /* ✅ Scale proportionally */
+    object-fit: contain;
+    /* ✅ No cropping */
+}
+
+.img-caption {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 1em;
+    font-weight: 600;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.desktop-caption {
+    display: block;
+}
+
+.mobile-caption {
+    display: none;
+}
+
+.minimap {
+    position: absolute;
+    top: 50%;
+    right: 8em;
+    width: 80px;
+
+  }
+
+.indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    border: 1px solid #000;
+    z-index: 2;
+}
+
+.item {
+    width: 100%;
+    height: 60px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+/* Fade 효과 기본 */
+body.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+body.fade-out {
+    animation: fadeOut 0.4s ease forwards;
+}
+
+/* 애니메이션 키프레임 */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 900px) {
+    body {
+        overflow: hidden;
+        touch-action: none;
+    }
+
+    .container {
+        touch-action: none;
+    }
+
+    .siteinfo {
+        top: 1.5em;
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+        text-align: center;
+    }
+
+    .img-caption {
+        order: 1;
+        margin-top: 1em;
+        max-width: 90%;
+    }
+
+    .img-preview+.img-caption {
+        display: block;
+        margin: 1.5em auto 0;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .siteinfo .img-caption {
+        display: none;
+    }
+
+    .minimap {
+        top: auto;
+        right: auto;
+        bottom: 5em;
+        left: 50%;
+        width: auto;
+        height: 80px;
+        touch-action: none;
+    }
+
+    .indicator {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 100%;
+    }
+
+    .items {
+        display: flex;
+        flex-direction: row;
+        width: max-content;
+        height: 100%;
+        touch-action: none;
+
+    }
+
+    .item {
+        width: 60px;
+        height: 100%;
+        padding: 5px;
+    }
+
+    .img-preview {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        height: 50%;
+        overflow: hidden;
+    }
+
+    .img-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .mobile-caption {
+        display: block;
+        text-align: center;
+        margin-top: 1em;
+        font-size: 0.95rem;
+        font-style: italic;
+        color: #666;
+        padding: 0 1em;
+        margin-top: 35%;
+        max-width: 90%;
+    }
+
+}

@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: 'Neue haes Grotesk', sans-serif;
+    background-color: #f1efe7;
+    color: #2f2f2f;
+    padding: 4em 1em;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Instrument Serif', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin-bottom: 0.25em;
+}
+
+p.subtitle {
+    text-align: center;
+    font-family: 'Neue haes Grotesk', sans-serif;
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 3em;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.trip-card {
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.trip-card:hover {
+    transform: rotate(-2deg) translateX(-4px);
+}
+
+
+
+.trip-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: none;
+}
+
+.trip-caption {
+    padding: 1em;
+    font-size: 0.95rem;
+    font-family: 'Instrument Serif', serif;
+    text-align: center;
+    color: #444;
+}
+
+.gallery {
+    display: grid;
+    gap: 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1em;
+    grid-template-columns: 1fr;
+    /* mobile default */
+}
+
+@media (min-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Fade 효과 기본 */
+body.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+body.fade-out {
+    animation: fadeOut 0.4s ease forwards;
+}
+
+/* 애니메이션 키프레임 */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
