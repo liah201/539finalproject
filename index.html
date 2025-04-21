@@ -54,21 +54,22 @@
         });
     </script>
 
-    <script>
-        const exploreBtn = document.getElementById('explore-button');
-        const menuOverlay = document.getElementById('fullscreen-menu');
-
-        exploreBtn.addEventListener('click', () => {
-            menuOverlay.classList.toggle('hidden');
-        });
-
-        // 전체 화면 클릭 시 닫기 (링크 클릭하면 자연스럽게 페이지 이동)
-        menuOverlay.addEventListener('click', (e) => {
-            if (e.target === menuOverlay) {
-                menuOverlay.classList.add('hidden');
-            }
-        });
-    </script>
-</body>
+<script>
+    const exploreBtn = document.getElementById('explore-button');
+    const menuOverlay = document.getElementById('fullscreen-menu');
+  
+    if (exploreBtn && menuOverlay) {
+      exploreBtn.addEventListener('click', () => {
+        menuOverlay.classList.toggle('hidden');
+      });
+  
+      menuOverlay.addEventListener('click', (e) => {
+        if (e.target === menuOverlay) {
+          menuOverlay.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+  
 
 </html>
