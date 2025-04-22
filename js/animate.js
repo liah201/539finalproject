@@ -1,4 +1,4 @@
-// ✅ Updated script.js to support immediate preview image change on click
+
 const container = document.querySelector('.container');
 const items = document.querySelector('.items');
 const indicator = document.querySelector('.indicator');
@@ -158,7 +158,7 @@ itemElements.forEach((item, index) => {
             -maxTranslate
         );
 
-        // ✅ Immediately update preview image and highlight
+        //update preview image and highlight
         updatePreviewImage(index);
         itemImages.forEach((img) => (img.style.opacity = 1));
         itemImages[index].style.opacity = activeItemOpacity;
@@ -185,7 +185,6 @@ closeBtn.addEventListener('click', () => {
 
 const currentPage = window.location.pathname.split("/").pop();
 
-// 모든 메뉴 항목 검사
 document.querySelectorAll(".menu-item").forEach(link => {
   if (link.getAttribute("href") === currentPage) {
     link.classList.add("active");
