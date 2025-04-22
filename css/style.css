@@ -32,7 +32,7 @@ p {
     align-items: center;
     min-height: 100vh;
     background-color: #f1efe7;
-    padding-top: 5em;
+    padding-top: inherit;
     /* space for nav */
     box-sizing: border-box;
 }
@@ -188,23 +188,23 @@ nav {
 
 .img-preview {
     position: absolute;
-    top: 28em;
+    top: 50%;  
     left: 50%;
+    max-width: 40%;
+    margin-bottom: 10px;
     transform: translate(-50%, -50%);
     width: 40%;
     height: auto;
-    /* ✅ Let it grow */
     max-height: 70vh;
-    /* ✅ Don’t overflow screen */
     overflow: visible;
 }
 
 .img-preview img {
     width: 80%;
     height: auto;
-    /* ✅ Scale proportionally */
+    /* Scale proportionally */
     object-fit: contain;
-    /* ✅ No cropping */
+    /* No cropping */
 }
 
 .img-caption {
@@ -333,7 +333,7 @@ body.fade-out {
     .minimap {
         top: auto;
         right: auto;
-        bottom: 5em;
+        bottom: 1.4em;
         left: 50%;
         width: auto;
         height: 80px;
@@ -364,32 +364,37 @@ body.fade-out {
     }
 
     .img-preview {
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 75%;
-        height: 50%;
-        overflow: hidden;
+        position: relative;  /* ✅ absolute → relative로 바꿨다면 유지 */
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0 auto 0 auto;  /* ✅ 위쪽 간격 줄임 */
+        width: 60%;
+        max-height: 400px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
-
+    
     .img-preview img {
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: contain;
     }
-
-    .mobile-caption {
+    
+    #img-caption-mobile {
         display: block;
+        position: static;
         text-align: center;
-        margin-top: 1em;
+        margin-top: 10px;
         font-size: 0.95rem;
         font-style: italic;
         color: #666;
         padding: 0 1em;
-        margin-top: 40%;
         max-width: 90%;
-    }
+      }
 
 }
 
