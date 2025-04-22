@@ -79,7 +79,7 @@ function getItemInIndicator() {
                 -maxTranslate
             );
     
-            // 🔥 Immediately update preview image and highlight
+            // Immediately update preview image and highlight
             updatePreviewImage(index);
             itemImages.forEach((img) => (img.style.opacity = 1)); // reset all
             itemImages[index].style.opacity = activeItemOpacity;  // highlight selected
